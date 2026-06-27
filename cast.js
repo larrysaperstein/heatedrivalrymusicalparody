@@ -11,14 +11,20 @@ const modalRole = document.getElementById("modalRole");
 const modalBio = document.getElementById("modalBio");
 const modalLinks = document.getElementById("modalLinks");
 
-const closeModal = document.querySelector(".close-modal");
+const closeModal = modal ? modal.querySelector(".close-modal") : null;
+
+let lastFocusedElement = null;
 
 
 // =====================================
 // BUILD SECTION
 // =====================================
 
-function buildSection(title, roster){
+function buildSection(title, roster) {
+
+    if (!castGrid) {
+        return;
+    }
 
     const section = document.createElement("section");
 
@@ -33,11 +39,14 @@ function buildSection(title, roster){
 
     const people = HeatedRivalryBios.buildPeople(roster);
 
-    people.forEach(person=>{
+    people.forEach(person => {
 
         const card = document.createElement("article");
 
         card.className = "cast-card";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", `View bio for ${person.name}, ${person.role}`);
 
         card.innerHTML = `
 
@@ -46,6 +55,8 @@ function buildSection(title, roster){
                     src="${person.image}"
                     alt="${person.name}"
                     loading="lazy"
+                    width="400"
+                    height="400"
                 >
                 </div>
 
@@ -55,9 +66,18 @@ function buildSection(title, roster){
              </div>
         `;
 
-        card.addEventListener("click",()=>{
+        card.addEventListener("click", () => {
 
             openModal(person);
+
+        });
+
+        card.addEventListener("keydown", (event) => {
+
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openModal(person);
+            }
 
         });
 
@@ -75,7 +95,13 @@ function buildSection(title, roster){
 // MODAL
 // =====================================
 
-function openModal(person){
+function openModal(person) {
+
+    if (!modal) {
+        return;
+    }
+
+    lastFocusedElement = document.activeElement;
 
     modalImage.src = person.image;
 
@@ -89,7 +115,7 @@ function openModal(person){
 
     modalLinks.innerHTML = "";
 
-    if(person.extra){
+    if (person.extra) {
 
         const extra = document.createElement("p");
 
@@ -102,8 +128,13 @@ function openModal(person){
     }
 
     modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
 
-    document.body.style.overflow="hidden";
+    document.body.style.overflow = "hidden";
+
+    if (closeModal) {
+        closeModal.focus();
+    }
 
 }
 
@@ -113,29 +144,45 @@ function openModal(person){
 // CLOSE
 // =====================================
 
-function closeBio(){
+function closeBio() {
+
+    if (!modal || !modal.classList.contains("active")) {
+        return;
+    }
 
     modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
 
-    document.body.style.overflow="";
+    document.body.style.overflow = "";
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+    }
 
 }
 
-closeModal.addEventListener("click",closeBio);
+if (closeModal) {
+    closeModal.setAttribute("aria-label", "Close bio");
+    closeModal.addEventListener("click", closeBio);
+}
 
-modal.addEventListener("click",(e)=>{
+if (modal) {
 
-    if(e.target===modal){
+    modal.addEventListener("click", (e) => {
 
-        closeBio();
+        if (e.target === modal) {
 
-    }
+            closeBio();
 
-});
+        }
 
-document.addEventListener("keydown",(e)=>{
+    });
 
-    if(e.key==="Escape"){
+}
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape" && modal && modal.classList.contains("active")) {
 
         closeBio();
 
@@ -149,12 +196,16 @@ document.addEventListener("keydown",(e)=>{
 // BUILD PAGE
 // =====================================
 
-buildSection(
-    "THE CAST",
-    HeatedRivalryBios.rosters.cast
-);
+if (castGrid && window.HeatedRivalryBios) {
 
-buildSection(
-    "CREATIVE TEAM",
-    HeatedRivalryBios.rosters.creative
-);
+    buildSection(
+        "THE CAST",
+        HeatedRivalryBios.rosters.cast
+    );
+
+    buildSection(
+        "CREATIVE TEAM",
+        HeatedRivalryBios.rosters.creative
+    );
+
+}

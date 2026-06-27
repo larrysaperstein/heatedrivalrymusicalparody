@@ -4,27 +4,66 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Cast &amp; Creative | Heated Rivalry: The Musical Parody!</title>
+    <link rel="icon" type="image/png" href="images/HR-fav.png">
+
+    <meta
+        name="description"
+        content="Meet the cast and creative team behind Heated Rivalry: The Musical Parody! — from Quick &amp; Funny Musicals at Upright Citizens Brigade Los Angeles."
+    >
+
+    <link rel="canonical" href="/cast.html">
 
     <meta name="theme-color" content="#1a1025">
 
-    <title>Cast & Creative | Heated Rivalry: The Musical Parody!</title>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Heated Rivalry: The Musical Parody!">
+    <meta property="og:title" content="Cast &amp; Creative | Heated Rivalry: The Musical Parody!">
+    <meta property="og:description" content="Meet the cast and creative team behind Heated Rivalry: The Musical Parody!">
+    <meta property="og:url" content="https://heatedrivalrymusicalparody.com/cast.html">
+    <meta property="og:image" content="https://heatedrivalrymusicalparody.com/images/2019_All_Gays_Happy-1400.jpg">
+    <meta property="og:locale" content="en_US">
 
-     <!-- Montserrat -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cast &amp; Creative | Heated Rivalry: The Musical Parody!">
+    <meta name="twitter:description" content="Meet the cast and creative team behind Heated Rivalry: The Musical Parody!">
+    <meta name="twitter:image" content="https://heatedrivalrymusicalparody.com/images/2019_All_Gays_Happy-1400.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cast.css">
 
+    <script defer src="script.js"></script>
+    <script defer src="program-bios.js"></script>
+    <script defer src="cast.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Cast & Creative | Heated Rivalry: The Musical Parody!",
+        "description": "Meet the cast and creative team behind Heated Rivalry: The Musical Parody!",
+        "inLanguage": "en-US",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Heated Rivalry: The Musical Parody!"
+        }
+    }
+    </script>
+
 </head>
 
 <body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
       <!-- ==========================
     NAVIGATION
@@ -32,14 +71,17 @@
 
 <header class="site-header">
 
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
 
             <a href="index.html" class="nav-logo-alt">
-                <img src="images/HR-logo-alpha.png" alt="Heated Rivalry Logo">
+                <picture>
+                    <source srcset="images/HR-logo-alpha.webp" type="image/webp">
+                    <img src="images/HR-logo-alpha.png" alt="Heated Rivalry: The Musical Parody!">
+                </picture>
             </a>
 
             <ul class="nav-links">
-    <li><a href="cast.html">Cast & Creative</a></li>
+    <li><a href="cast.html" aria-current="page">Cast & Creative</a></li>
     <li><a href="media.html">Media</a></li>
     <li><a href="press.html">Press</a></li>
             </ul>
@@ -52,12 +94,14 @@
     <a
         href="https://www.instagram.com/heatedrivalrymusicalparody/"
         target="_blank"
+        rel="noopener noreferrer"
         class="instagram-link"
+        aria-label="Heated Rivalry on Instagram"
     >
-        <img src="images/instagram.svg" alt="Instagram">
+        <img src="images/instagram.svg" alt="" width="30" height="30">
     </a>
 
-    <button class="hamburger">
+    <button type="button" class="hamburger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
         <span></span>
         <span></span>
         <span></span>
@@ -66,9 +110,9 @@
 
         </nav>
 
-        <div class="mobile-menu">
+        <div class="mobile-menu" id="mobile-menu">
 
-            <a href="cast.html">Cast & Creative</a>
+            <a href="cast.html" aria-current="page">Cast & Creative</a>
             <a href="media.html">Media</a>
             <a href="press.html">Press</a>
 
@@ -76,7 +120,7 @@
 
     </header>
 
-
+    <main id="main-content">
 
     <!-- ==========================
     HERO
@@ -87,8 +131,8 @@
         <div class="container">
             <h1>CAST &amp; CREATIVE</h1>
 
-            <h2> Heated Rivalry: The Musical Parody! comes from Quick & Funny Musicals, the longtime Upright Citizens Brigade Los Angeles musical comedy team known for creating ambitious, ridiculous original and parody musicals... and putting them on stage before anyone can talk them out of it.
-            </h2>
+            <p class="cast-intro"> Heated Rivalry: The Musical Parody! comes from Quick & Funny Musicals, the longtime Upright Citizens Brigade Los Angeles musical comedy team known for creating ambitious, ridiculous original and parody musicals... and putting them on stage before anyone can talk them out of it.
+            </p>
 
         </div>
 
@@ -120,11 +164,11 @@
     MODAL
     ========================== -->
 
-    <div class="bio-modal" id="bioModal">
+    <div class="bio-modal" id="bioModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalName">
 
         <div class="bio-modal-content">
 
-            <button class="close-modal">
+            <button type="button" class="close-modal" aria-label="Close bio">
 
                 &times;
 
@@ -132,8 +176,10 @@
 
             <img
                 id="modalImage"
-                src=""
+                src="images/headshots/Andrew Young.jpg"
                 alt=""
+                width="220"
+                height="220"
             >
 
             <h2 id="modalName"></h2>
@@ -155,10 +201,12 @@
     </div>
 
     <div class="cast-bottom-button">
-            <a href="https://www.instagram.com/quickandfunnymusicals/" target="_blank" class="secondary-btn">
+            <a href="https://www.instagram.com/quickandfunnymusicals/" target="_blank" rel="noopener noreferrer" class="secondary-btn">
                 Learn More
             </a>
     </div>
+
+    </main>
 
 
    <!-- ==========================
@@ -167,9 +215,9 @@
 
     <footer>
 
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Footer navigation">
 
-            <a href="cast.html">
+            <a href="cast.html" aria-current="page">
                 Cast & Creative
             </a>
 
@@ -188,27 +236,22 @@
             <a
                 href="https://www.instagram.com/heatedrivalrymusicalparody/"
                 target="_blank"
+                rel="noopener noreferrer"
             >
                 Instagram
             </a>
 
-        </div>
+        </nav>
 
         <div class="copyright">
 
             © 2026 Heated Rivalry: The Musical Parody - Quick & Funny Musicals.<br>
             All Rights Reserved. <br>
-            Website by <a href="https://www.sapersteindesign.com" target="_blank" class="accent-link">Saperstein Creative.</a>
+            Website by <a href="https://www.sapersteindesign.com" target="_blank" rel="noopener noreferrer" class="accent-link">Saperstein Creative.</a>
 
         </div>
 
     </footer>
-
-    <script src="script.js"></script>
-
-    <script src="program-bios.js"></script>
-
-    <script src="cast.js"></script>
 
 </body>
 

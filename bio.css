@@ -1,0 +1,46 @@
+/* Standalone cast bio pages */
+
+.bio-page{
+    padding:180px 0 120px;
+}
+
+.bio-back-link{
+    margin-bottom:2rem;
+}
+
+.bio-profile{
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.bio-profile-image{
+    width:min(320px, 70vw);
+    aspect-ratio:1 / 1;
+    object-fit:cover;
+    border-radius:5px;
+    margin:0 auto 2rem;
+}
+
+.bio-profile h1{
+    font-size:clamp(2rem, 5vw, 3rem);
+    font-weight:800;
+    margin-bottom:.5rem;
+}
+
+.bio-profile-role{
+    color:var(--accent-purple);
+    font-size:1.15rem;
+    font-weight:600;
+    margin-bottom:2rem;
+}
+
+.bio-profile-content{
+    text-align:left;
+}
+
+@media (max-width:650px){
+    .bio-page{
+        padding:150px 0 80px;
+    }
+}
