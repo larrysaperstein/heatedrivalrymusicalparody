@@ -122,7 +122,7 @@ HEADER
 }
 
 #tickets{
-    scroll-margin-top:0;
+    scroll-margin-top:130px;
 }
 
 .navbar{
@@ -1177,7 +1177,7 @@ MOBILE NAV
 @media (max-width:850px){
 
     #tickets{
-        scroll-margin-top:0;
+        scroll-margin-top:100px;
     }
 
     .navbar{
