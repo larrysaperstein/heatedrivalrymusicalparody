@@ -26,7 +26,10 @@ RESET
     box-sizing:border-box;
 }
 
-html{scroll-behavior:smooth;}
+html{
+    scroll-behavior:smooth;
+    background: var(--bg-dark);
+}
 
 body{
     font-family:'Montserrat',sans-serif;
@@ -182,6 +185,7 @@ HAMBURGER
 
 .hamburger.open span:nth-child(2) {
   opacity: 0;
+  width: 0;
 }
 
 .hamburger.open span:nth-child(3) {
@@ -512,7 +516,8 @@ COMPANY SECTION
 .secondary-btn{
     font-size:1.3rem;
     display:block;
-    margin-top:3rem;
+    margin: 3rem auto;
+    max-width: 500px;
     padding:1rem;
     border-radius:999px;
     background:var(--accent-purple);
