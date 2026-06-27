@@ -163,6 +163,7 @@ HEADER
 HAMBURGER
 ====================== */
 .hamburger{
+    display: none;
     position:relative;
     width:28px;
     height:22px;
@@ -927,6 +928,28 @@ LINKS
 
 .accent-link:hover {
     color: var(--accent-pink);
+}
+
+/* =====================
+Hero Large Display
+===================== */
+
+@media (min-width:1800px){
+
+    .hero-logo{
+        width:650px;
+        margin-top: -5rem;
+    }
+
+    .hero-shane{
+        width:900px;
+        left: -6%;
+    }
+    .hero-ilya{
+        width:900px;
+        right: -6%;
+    }
+
 }
 
 /* =====================
