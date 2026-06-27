@@ -28,7 +28,6 @@ RESET
 
 html{scroll-behavior:smooth;}
 
-html,
 body{
     font-family:'Montserrat',sans-serif;
     color:var(--text);
