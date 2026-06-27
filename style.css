@@ -469,15 +469,15 @@ TICKETS
 /* ======================
 SEE YOU AT THE COTTAGE
 ====================== */
-.cottage-section{padding-top:3rem;}
+.cottage-section{padding-top:0;}
 
 .cottage-section h2{
     text-align:center;
-    font-size:clamp(3rem,9vw,7rem);
+    font-size:clamp(2.5rem,9vw,7rem);
     font-weight:900;
-    line-height:.95;
+    line-height:1;
     margin-bottom:3rem;
-    letter-spacing:-.04em;
+    padding: 0 20px;
 }
 
 .cottage-image{
@@ -1172,6 +1172,7 @@ PHONE
     .about-text h2{line-height:1.2;}
     .ticket-card{padding:1rem;}
     .company-section{padding:100px 0;}
+    .cottage-section h2{margin-top: -50px;}
 }
 
 /* ======================
