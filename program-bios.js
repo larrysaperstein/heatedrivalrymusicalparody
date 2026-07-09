@@ -177,7 +177,7 @@
       { id: "molly-moseley", role: "Head Writer", extra: "Song Writer" },
       { id: "ellie-diberardino", role: "Director" },
       { id: "rob-warner", role: "Resident Director / Producer", extra: "Ilya Rosanov, Song Writer" },
-      { id: "shilpa-das", role: "Producer", extra: "Yuna Hollander, Elena Rygg, Various, Song Writer" },
+      { id: "shilpa-das", role: "Producer, Song Writer", extra: "Yuna Hollander, Elena Rygg, Various" },
       { id: "dahlya-glick", role: "Choreographer", extra: "Commentator, David Hollander, Various" },
       { id: "tony-gonzalez", role: "Music Director" },
       { id: "larry-saperstein", role: "Lighting Design, Company Manager", extra: "Song Writer" },
