@@ -35,6 +35,170 @@ if (navLogo && hero) {
 
 
 // =====================================
+// SPLASH VIDEO (homepage only)
+// =====================================
+
+const splashSection = document.querySelector(".splash-video-section");
+
+if (splashSection) {
+
+    const splashVideo = splashSection.querySelector("#splashVideo");
+    const splashSource = splashVideo?.querySelector("source");
+    const playBtn = splashSection.querySelector(".splash-video-play");
+    const muteBtn = splashSection.querySelector(".splash-video-mute");
+    const playIcon = playBtn?.querySelector(".icon-play");
+    const pauseIcon = playBtn?.querySelector(".icon-pause");
+    const unmuteIcon = muteBtn?.querySelector(".icon-unmute");
+    const muteIcon = muteBtn?.querySelector(".icon-mute");
+
+    let splashSourceLoaded = false;
+
+    function loadSplashSource() {
+
+        if (!splashSource || splashSourceLoaded) {
+            return Promise.resolve();
+        }
+
+        const sourceUrl = splashSource.dataset.src;
+
+        if (!sourceUrl) {
+            return Promise.resolve();
+        }
+
+        splashSource.src = sourceUrl;
+        splashSource.removeAttribute("data-src");
+        splashVideo.load();
+        splashSourceLoaded = true;
+
+        return new Promise((resolve, reject) => {
+
+            if (splashVideo.readyState >= 2) {
+                resolve();
+                return;
+            }
+
+            splashVideo.addEventListener("loadeddata", resolve, { once: true });
+            splashVideo.addEventListener("error", reject, { once: true });
+
+        });
+
+    }
+
+    async function startSplashPlayback() {
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
+
+        try {
+            await loadSplashSource();
+            await splashVideo.play();
+        } catch (error) {
+            return;
+        }
+
+    }
+
+    function setPlayState(isPlaying) {
+
+        if (!playBtn || !playIcon || !pauseIcon) {
+            return;
+        }
+
+        playIcon.hidden = isPlaying;
+        pauseIcon.hidden = !isPlaying;
+        playBtn.setAttribute("aria-label", isPlaying ? "Pause video" : "Play video");
+        playBtn.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+
+    }
+
+    function setMuteState(isMuted) {
+
+        if (!muteBtn || !unmuteIcon || !muteIcon) {
+            return;
+        }
+
+        muteIcon.hidden = !isMuted;
+        unmuteIcon.hidden = isMuted;
+        muteBtn.setAttribute("aria-label", isMuted ? "Unmute video" : "Mute video");
+        muteBtn.setAttribute("aria-pressed", isMuted ? "true" : "false");
+
+    }
+
+    if (splashVideo && playBtn && muteBtn) {
+
+        setPlayState(false);
+        setMuteState(splashVideo.muted);
+
+        const splashLoader = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        startSplashPlayback();
+                        splashLoader.disconnect();
+
+                    }
+
+                });
+
+            },
+
+            {
+                rootMargin: "250px 0px"
+            }
+
+        );
+
+        splashLoader.observe(splashSection);
+
+        playBtn.addEventListener("click", async () => {
+
+            if (splashVideo.paused) {
+
+                try {
+                    await loadSplashSource();
+                    await splashVideo.play();
+                } catch (error) {
+                    return;
+                }
+
+            } else {
+
+                splashVideo.pause();
+
+            }
+
+        });
+
+        muteBtn.addEventListener("click", () => {
+
+            splashVideo.muted = !splashVideo.muted;
+            setMuteState(splashVideo.muted);
+
+        });
+
+        splashVideo.addEventListener("play", () => {
+            setPlayState(true);
+        });
+
+        splashVideo.addEventListener("pause", () => {
+            setPlayState(false);
+        });
+
+        splashVideo.addEventListener("volumechange", () => {
+            setMuteState(splashVideo.muted);
+        });
+
+    }
+
+}
+
+
+// =====================================
 // SLIDESHOW (homepage only)
 // =====================================
 

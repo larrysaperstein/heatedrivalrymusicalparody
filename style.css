@@ -65,6 +65,7 @@ a:focus-visible,
 button:focus-visible,
 [role="button"]:focus-visible,
 .tickets-nav-btn:focus-visible,
+.splash-video-btn:focus-visible,
 .primary-btn:focus-visible,
 .secondary-btn:focus-visible,
 .hamburger:focus-visible,
@@ -221,9 +222,11 @@ HEADER
     transition: var(--transition);
 }
 
-.tickets-nav-btn:hover{
-    background:var(--accent-purple);
-    color:#fff!important;
+@media (hover: hover){
+    .tickets-nav-btn:hover{
+        background:var(--accent-purple);
+        color:#fff!important;
+    }
 }
 
 /* ======================
@@ -282,6 +285,8 @@ HERO
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     background: #000;
 }
 
@@ -395,6 +400,69 @@ Buttons
     background: var(--accent-purple);
     color: white;
     transform: translateY(-3px);
+}
+
+/* ======================
+SPLASH VIDEO
+====================== */
+
+.splash-video-section {
+    width: 100%;
+    background: #000;
+}
+
+.splash-video-frame {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+}
+
+.splash-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+}
+
+.splash-video-controls {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    z-index: 2;
+}
+
+.splash-video-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: opacity var(--transition);
+}
+
+.splash-video-btn img {
+    display: block;
+    width: 39px;
+    height: 39px;
+    opacity: 0.75;
+    filter: invert(48%) sepia(68%) saturate(3200%) hue-rotate(267deg) brightness(98%) contrast(95%);
+    transition: opacity var(--transition), filter 0.3s ease;
+}
+
+.splash-video-btn img[hidden] {
+    display: none;
+}
+
+@media (hover: hover) {
+    .splash-video-btn:hover img {
+        opacity: 1;
+        filter: invert(48%) sepia(68%) saturate(3200%) hue-rotate(267deg) brightness(108%) contrast(100%);
+    }
 }
 
 /* ======================
@@ -1081,10 +1149,6 @@ PHONE
 ========================================== */
 
 @media (max-width: 768px) {
-    .hero {
-        min-height: 900px;
-    }
-
     .hero-logo {
         width: 50vw;
     }
@@ -1140,10 +1204,6 @@ SMALL PHONE
 ========================================== */
 
 @media (max-width: 550px) {
-    .hero {
-        min-height: 820px;
-    }
-
     .hero-logo {
         width: 60vw;
         top: 22%;

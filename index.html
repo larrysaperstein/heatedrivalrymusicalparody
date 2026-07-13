@@ -313,7 +313,85 @@ HERO
 </section>
 
 
+    <!-- ==========================
+    SPLASH VIDEO
+    ========================== -->
 
+    <section class="splash-video-section" aria-label="Show highlight video">
+
+        <div class="splash-video-frame">
+
+            <video
+                id="splashVideo"
+                class="splash-video"
+                poster="images/hr-splash-fallback.webp"
+                preload="metadata"
+                playsinline
+                muted
+                loop
+                width="1920"
+                height="1080"
+            >
+                <source data-src="videos/hr-splash.webm" type="video/webm">
+            </video>
+
+            <div class="splash-video-controls">
+
+                <button
+                    type="button"
+                    class="splash-video-btn splash-video-play"
+                    aria-label="Play video"
+                    aria-pressed="false"
+                >
+                    <img
+                        src="images/play-fill.svg"
+                        alt=""
+                        width="30"
+                        height="30"
+                        class="icon-play"
+                        decoding="async"
+                    >
+                    <img
+                        src="images/pause-fill.svg"
+                        alt=""
+                        width="30"
+                        height="30"
+                        class="icon-pause"
+                        hidden
+                        decoding="async"
+                    >
+                </button>
+
+                <button
+                    type="button"
+                    class="splash-video-btn splash-video-mute"
+                    aria-label="Unmute video"
+                    aria-pressed="true"
+                >
+                    <img
+                        src="images/volume-up-fill.svg"
+                        alt=""
+                        width="30"
+                        height="30"
+                        class="icon-unmute"
+                        hidden
+                        decoding="async"
+                    >
+                    <img
+                        src="images/volume-mute-fill.svg"
+                        alt=""
+                        width="30"
+                        height="30"
+                        class="icon-mute"
+                        decoding="async"
+                    >
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- ==========================
@@ -435,7 +513,7 @@ HERO
                     <h3>LOS ANGELES</h3>
 
                     <p>
-                        There are no performances currently scheduled for Los Angeles, but we're hoping to return to the cottage soon!
+                        There are no performances currently scheduled for Los Angeles, but we're hoping to return to the rink soon!
                     </p>
 
                     <a
