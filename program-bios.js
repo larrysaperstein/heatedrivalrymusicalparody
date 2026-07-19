@@ -151,6 +151,12 @@
       name: "Vasthy Mompoint",
       image: "images/headshots/Vasthy Mompoint.jpeg",
       bioHtml: "<p>Vasthy Mompoint is an 8-time Broadway performer, choreographer, and the creator of Vasthy &amp; Friends (formerly Vasthy's Friends), an interactive children's show that brings Broadway magic to families through original music, dance-alongs, and joyful cultural discovery.</p><p>Her Broadway credits include <em>The Prom</em>, <em>SpongeBob SquarePants: The Broadway Musical</em>, <em>Rocky</em>, <em>Mary Poppins</em>, and more.</p><p>Vasthy's screen credits include <em>High School Musical: The Musical: The Series</em>, <em>NCIS</em>, and <em>The Bold and the Beautiful</em>.</p><p>As a voice actor, she voices Briny the Whale on Nickelodeon's <em>Baby Shark's Big Show!</em> and can be heard in the Disney+ voice-over production <em>Ariel Jr.</em></p><p>With a deep commitment to inclusion and emotional fluency, Vasthy creates experiences where every child feels seen, celebrated, and invited to play.</p><p>IG: <a class=\"inline-link\" href=\"https://www.instagram.com/frostyvasthy/\" target=\"_blank\" rel=\"noopener noreferrer\">@frostyvasthy</a></p>"
+    },
+    "cj-cruz": {
+      id: "cj-cruz",
+      name: "CJ Cruz",
+      image: "images/headshots/CJ Cruz.jpeg",
+      bioHtml: "<p>CJ Cruz is thrilled not only to make his Edinburgh Fringe debut, but also his Quick &amp; Funny Musicals debut! He&rsquo;s a Los Angeles-based actor, singer, and comedian.</p><p>He studied at Duke University, and some recent credits include <em>Three Months Later</em> (Radiant J.), <em>Spring Awakening</em> (East West Players), <em>God Will Do The Rest</em> (Artists at Play &amp; Latino Theater Company), and <em>The Hunchback of Notre Dame</em> (Casa 0101).</p><p>IG: <a class=\"inline-link\" href=\"https://www.instagram.com/realcjcruz/\" target=\"_blank\" rel=\"noopener noreferrer\">@realcjcruz</a></p>"
     }
   };
 
@@ -170,7 +176,8 @@
       { id: "dahlya-glick", role: "Commentator, David Hollander, Various", extra: "Choreographer" },
       { id: "marnina-schon", role: "Intimacy Coordinator, Various", extra: "Song Writer" },
       { id: "gwen-hollander", role: "Commentator, Various" },
-      { id: "gabe-greenspan", role: "Commentator, Various", extra: "Song Writer" }
+      { id: "gabe-greenspan", role: "Commentator, Various", extra: "Song Writer" },
+      { id: "cj-cruz", role: "Commentator 2, U/S Shane, Kip" }
     ],
     creative: [
       { id: "andrew-young", role: "Head Writer / Producer", extra: "Scott Hunter, Song Writer" },

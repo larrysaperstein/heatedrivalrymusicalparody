@@ -564,3 +564,86 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     }, { passive: true });
 
 })();
+
+
+// =====================================
+// TICKETS HASH SCROLL (homepage only)
+// =====================================
+
+(function () {
+
+    const ticketsSection = document.getElementById("tickets");
+
+    if (!ticketsSection) {
+        return;
+    }
+
+    function getHeaderOffset() {
+
+        const header = document.querySelector(".site-header");
+        return header ? header.offsetHeight : 0;
+
+    }
+
+    function scrollToTickets(behavior) {
+
+        const scrollBehavior = behavior || "auto";
+        const top = ticketsSection.getBoundingClientRect().top
+            + window.pageYOffset
+            - getHeaderOffset();
+
+        window.scrollTo({
+            top: Math.max(top, 0),
+            behavior: scrollBehavior
+        });
+
+    }
+
+    function syncTicketsHashScroll(behavior) {
+
+        if (window.location.hash !== "#tickets") {
+            return;
+        }
+
+        scrollToTickets(behavior);
+
+    }
+
+    document.querySelectorAll('a[href="#tickets"]').forEach(anchor => {
+
+        anchor.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            history.pushState(null, "", "#tickets");
+            syncTicketsHashScroll("smooth");
+
+        });
+
+    });
+
+    syncTicketsHashScroll("auto");
+    requestAnimationFrame(() => {
+        syncTicketsHashScroll("auto");
+    });
+
+    window.addEventListener("load", () => {
+        syncTicketsHashScroll("auto");
+    });
+
+    window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+            syncTicketsHashScroll("auto");
+        }
+    });
+
+    window.addEventListener("hashchange", () => {
+        syncTicketsHashScroll("auto");
+    });
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            syncTicketsHashScroll("auto");
+        });
+    }
+
+})();

@@ -164,7 +164,7 @@ MODAL CONTENT
 MODAL IMAGE
 ========================================== */
 
-.bio-modal-content img{
+.bio-modal-content #modalImage{
     width:220px;
     aspect-ratio:1;
     object-fit:cover;
@@ -256,9 +256,21 @@ CLOSE BUTTON
     border-radius:50%;
     background:rgba(255,255,255,.08);
     color:white;
-    font-size:2rem;
     cursor:pointer;
     transition:.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    line-height:1;
+}
+
+.close-modal img{
+    display:block;
+    width:24px;
+    height:24px;
+    filter: var(--icon-filter-white);
+    pointer-events:none;
 }
 
 .close-modal:hover{
@@ -307,7 +319,7 @@ RESPONSIVE
         padding:1.5rem;
     }
 
-    .bio-modal-content img{
+    .bio-modal-content #modalImage{
         width:180px;
     }
 }

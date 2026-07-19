@@ -15,6 +15,17 @@ ROOT VARIABLES
     --border-radius:20px;
     --transition:.3s ease;
     --max-width:1300px;
+    --icon-white-stroke:
+        drop-shadow(0.5px 0 0 #fff)
+        drop-shadow(-0.5px 0 0 #fff)
+        drop-shadow(0 0.5px 0 #fff)
+        drop-shadow(0 -0.5px 0 #fff)
+        drop-shadow(0.5px 0.5px 0 #fff)
+        drop-shadow(-0.5px 0.5px 0 #fff)
+        drop-shadow(0.5px -0.5px 0 #fff)
+        drop-shadow(-0.5px -0.5px 0 #fff)
+        drop-shadow(0 0 0.5px #fff);
+    --icon-filter-white: brightness(0) invert(1) var(--icon-white-stroke);
 }
 
 /* ======================
@@ -28,6 +39,7 @@ RESET
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:120px;
     background: var(--bg-dark);
 }
 
@@ -468,7 +480,7 @@ SPLASH VIDEO
 /* ======================
 ABOUT
 ====================== */
-.about-section{padding:80px 0;}
+.about-section{padding:80px 0 40px;}
 
 .about-grid{
     display:flex;
@@ -555,7 +567,7 @@ ABOUT
 TICKETS
 ====================== */
 .tickets-section{
-    padding: 120px 0;
+    padding: 60px 0 120px;
     margin-top: 0;
 }
 
@@ -821,10 +833,22 @@ LIGHTBOX
     border-radius:50%;
     background:rgba(255,255,255,.08);
     color:white;
-    font-size:2rem;
     cursor:pointer;
     transition:.3s;
     backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    line-height:1;
+}
+
+.lightbox-arrow img{
+    display:block;
+    width:28px;
+    height:28px;
+    filter: var(--icon-filter-white);
+    pointer-events:none;
 }
 
 .lightbox-arrow:hover{
@@ -843,7 +867,6 @@ LIGHTBOX
     position:absolute;
     top:30px;
     right:40px;
-    font-size:3rem;
     cursor:pointer;
     color:white;
 }
@@ -858,9 +881,21 @@ LIGHTBOX
     border-radius:50%;
     background:rgba(255,255,255,.08);
     color:white;
-    font-size:2rem;
     cursor:pointer;
     transition:.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    line-height:1;
+}
+
+.close-modal img{
+    display:block;
+    width:24px;
+    height:24px;
+    filter: var(--icon-filter-white);
+    pointer-events:none;
 }
 
 .close-modal:hover{
@@ -1235,6 +1270,10 @@ TABLET
 MOBILE NAV
 ====================== */
 @media (max-width:850px){
+    html{
+        scroll-padding-top:90px;
+    }
+
     #tickets{
         scroll-margin-top:0;
     }
