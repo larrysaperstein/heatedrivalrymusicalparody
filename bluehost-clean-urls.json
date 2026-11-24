@@ -1,0 +1,22 @@
+{
+  "platform": "bluehost",
+  "site": "heatedrivalrymusicalparody.com",
+  "description": "Remove .html from public URLs on Apache hosting.",
+  "deploy": {
+    "file": ".htaccess",
+    "location": "public_html (site root, same folder as index.html)"
+  },
+  "behavior": {
+    "stripExtension": "html",
+    "redirectHtmlUrlsToClean": true,
+    "redirectIndexHtmlToRoot": true,
+    "serveHtmlFilesInternally": true
+  },
+  "examples": {
+    "/cast.html": "/cast",
+    "/media.html": "/media",
+    "/press.html": "/press",
+    "/index.html": "/",
+    "/bio-htmls/bio-andrew-young.html": "/bio-htmls/bio-andrew-young"
+  }
+}
